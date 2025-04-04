@@ -53,3 +53,13 @@ x = 1
 ```
 
 Either error might just be careless, but the conceptual error is the one that gets the harsher deduction.
+
+### 14.3 Know Your Calculator
+
+#### Which Calculator Should You Use?
+
+#### Clearing the Memory
+
+#### Use Parentheses
+
+#### Using the ANS Feature
