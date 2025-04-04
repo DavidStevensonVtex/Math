@@ -63,3 +63,9 @@ Either error might just be careless, but the conceptual error is the one that ge
 #### Use Parentheses
 
 #### Using the ANS Feature
+
+### 14.4 Use the Reference Sheet
+
+In the back of the Algebra I Regents booklet is a reference sheet with 17 conversion facts, like inches to centimeters and quarts to pints, and also 17 formulas.
+
+The quadratic formula and the arithmetic sequence formula are the two that will come in the handiest.
