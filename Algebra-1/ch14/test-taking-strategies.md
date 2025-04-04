@@ -17,3 +17,39 @@ Redoing the test and comparing your answers is much more effetive than simply "l
 #### Bring a Watch
 
 Without knowing how much time is left, you might rush and make careless errors.
+
+### 14.2 Know How to Get Partial Credit
+
+#### Know the Structure of the Exam
+
+There is no partial credit for Multiple-Choice questions.
+
+For free-response questions with no multiple-choice and you can get partial credit for these questions.
+
+#### Explaining Your Reasoning
+
+The grader is expecting a few clearly written sentences.
+
+You don't want to write too little since the grader needs to see that you understand why you did the different steps you did to solve the equation.
+
+You don't want to write too much because if anything you write is not accurate, points can be deducted.
+
+#### Computational Errors vs. Conceptual Errors
+
+This is an example of a computational error.
+
+```
+x - 1 = 2
++1 = +1
+x = 4
+```
+
+This is an example of a conceptual error.
+
+```
+x - 1 =2
+-1 = -1
+x = 1
+```
+
+Either error might just be careless, but the conceptual error is the one that gets the harsher deduction.
