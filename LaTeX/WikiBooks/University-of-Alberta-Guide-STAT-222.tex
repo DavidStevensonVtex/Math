@@ -1,0 +1,204 @@
+% https://en.wikibooks.org/wiki/University_of_Alberta_Guide/STAT/222/LaTeX_Version
+\documentclass[10pt]{report}
+\usepackage{amsmath,amssymb}
+\usepackage[dvips]{graphicx}
+
+\title{STAT 222\\Survival Guide}
+\author{By Pat Sissons}
+\date{Last Updated on \today}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage} 
+
+\part*{DON'T\\PANIC}
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\section*{Preamble}
+This guide is designed to help anyone who is completely lost in STAT 222.  I wrote this because I am currently taking STAT 222 and I have no clue what the hell is going on.  So my goal here is to pass on any knowledge that I can in terms or words that should make sense rather than a bunch of STAT 222 jargon.  I only plan on filling in what I research, which is usually what I don't already know.  Hopefully, when I am done with this guide, someone else can take over and continue adding more and more.  Eventually, this survival guide may turn into a replacement for the real book.\\
+Make note that this guide does not include any information on discrete random variables since they are not part of the STAT 222 course material.\\
+
+\chapter{Uniform RV's}
+Uniform Random Variables are used where each outcome of an event is equally probable.  For $p_{U}(u) = P(U \leq u)$ where $U$ is some $[a, b]$-Uniform Random Variable, $p_{U}(u)$ will always be zero unless $(a \leq u \leq b)$.  When $(a \leq u \leq b)$, then $p_{U}(u) = \dfrac{1}{b-a}$.\\
+\section*{Notable Equations}
+\begin{align*}
+\int_{-\infty}^{\infty}f_{X}(x)\delta x& = 1\\
+\end{align*}
+
+\chapter{Independence and Conditional Expectations}
+\begin{figure}[h]
+$P(X_{1} \leq x_{1}, ..., X_{d} \leq x_{d}) = P(X_{1} \leq x_{1}) \cdot \cdot \cdot P(X_{d} \leq x_{d})$\\
+\text{The same goes for }$F_{X_{1...d}}(x_{1...d})$, $f_{X_{1...d}}(x_{1...d})$, $E\left[X_{1...d}\right]$
+\caption{If RV's are independent, then you can multiply them together}
+\end{figure}
+\begin{figure}[h]
+$M_{X_{1} + ... + X_{d}}(t) = M_{X_{1}}(t) \cdot\cdot\cdot M_{X_{d}}(t) = E\left[e^{tX_{1}} \cdot\cdot\cdot e^{tX_{d}}\right]$
+\caption{Moments, however, are a little different}
+\end{figure}
+
+\part{STAT Formulas and Functions}
+
+\section*{General Formulas}
+\begin{align*}
+R_{T}(t)& = P(T > t) = 1 - P(T \leq t) = 1 - F_{T}(t)& \forall t \geq 0\\
+F_{T}(t)& = P(T \leq t) = 1 - P(T > t) = 1 - R_{T}(t)& \forall t \geq 0\\
+F_{X_{1, ..., d}}(x_{1, ..., d})& = P(X_{1} \leq x_{1}, ..., X_{d} \leq x_{d})\\
+R_{X_{1, ..., d}}(x_{1, ..., d})& = P(X_{1} > x_{1}, ..., X_{d} > x_{d})\\
+P(X_{1} \leq x_{1}, ..., X_{d} \leq x_{d})& = P(X_{1} \leq x_{1}) \cdot \cdot \cdot P(X_{d} \leq x_{d})& \text{(By Independence)}\\
+P(a \leq X < b)& = P(a \leq X \leq b) = P(a < X \leq b) = P(a < X < b)\\
+P(X \leq x | Y \leq y)& = ?\\
+F_{X | Y}(x | y)& = ?\\
+f_{X | Y}(x | y)& = ?\\
+E\left[X | Y\right]& = ?\\
+P(T = t)& = 0\\
+R_{X}(0)& = 1\\
+F_{X}(0)& = 0\\
+F_{X}(x)& = \int_{-\infty}^{x}f_{X}(y)\delta y\\
+f_{X}(x)& = \frac{\delta}{\delta x}F_{X}(x)\\
+P(a \leq X \leq b)& = \int_{a}^{b}f_{X}(x)\delta x\\
+h_{T}(t)& = \int_{0}^{t}f_{T}(x)\delta x\\
+E\left[X\right]& = \int_{-\infty}^{\infty}xf_{X}(x)\delta x\\
+E\left[g(X)\right]& = \int_{-\infty}^{\infty}g(x)f_{X}(x)\delta x\\
+E\left[g(Y) | X = x \right]& = \int_{-\infty}^{\infty}g(x)f_{Y | X}(y | x)\delta x\\
+E\left[X^{\alpha}\right]& = \alpha \int_{0}^{\infty}t^{\alpha-1}P\left(X > t\right)\delta t\\
+Cov(X)& = (x - EX)(x - EX)^{T}\\
+Cov(X)& = 
+\begin{bmatrix}
+(x_{1} - EX_{1})^{2} & \hdots & (x_{1} - EX_{1})(x_{d} - EX_{d})\\
+\vdots & \ddots & \vdots\\
+(x_{d} - EX_{d})(x_{1} - EX_{1}) & \hdots & (x_{d} - EX_{d})^{2}\\
+\end{bmatrix}\\
+\end{align*}
+
+\pagebreak
+
+\section*{Probability Density Functions ($pdf$)}
+\begin{align*}
+\text{Uniform}& : [a,b]-U& f_{X}(x) & = 
+	\begin{cases}
+	\dfrac{1}{b-a}& a < x < b\\
+	0& else\\
+	\end{cases}\\
+\text{Exponential}& : \lambda-Exp& f_{X}(x) & = 
+	\begin{cases}
+	\lambda e^{-\lambda x}& \lambda, x \geq 0\\
+	0& x < 0\\
+	\end{cases}\\
+\text{Gamma}& : (\alpha, \beta)-Gamma& f_{X}(x) & = \dfrac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\beta^{\alpha}\Gamma(\alpha)}& \alpha,\beta,x > 0\\
+\text{Weibull}& : (\alpha, \beta)-Weibull& f_{X}(x) & = \left(\frac{\alpha}{\beta}\right)\left(\frac{x}{\beta}\right)^{\alpha-1}e^{-\left(\frac{x}{\beta}\right)^{\alpha}}& \alpha,\beta,x > 0\\
+\text{Normal}& : (\mu, \sigma^{2})& f_{X}(x) & = \dfrac{1}{\sqrt{2\pi}\rho}e^{\left(-\frac{\left(x-\mu\right)^{2}}{2\rho^{2}}\right)}& \rho > 0,  x,\mu \in \mathbb{R}\\
+\text{Binomial}& : ?& p(x) & = \binom{n}{x}p^{x}\left(1-p\right)^{n-x}& x=0,1,2,...n\\
+\text{Geometric}& : ?& p(x) & = p\left(1-p\right)^{x-1}& x=1,2,...,\infty\\
+\text{Poisson}& : ?& p(x) & = e^{-\mu}\frac{\mu^{x}}{x!}& x=0,1,2,...,\infty\\
+\end{align*}
+
+\pagebreak
+
+\section*{Cumulative Density Functions ($cdf$)}
+\begin{align*}
+\text{Uniform}& : [a,b]-\text{Uniform}& F_{X}(x) & = 
+	\begin{cases}
+	0& x < a\\
+	\dfrac{x-a}{b-a}& a \leq x < b\\
+	1& x \geq b\\
+	\end{cases}\\
+\text{Exponential}& : \lambda-\text{Exp}& F_{X}(x) & = 
+	\begin{cases}
+	1 - e^{-\lambda x}& \lambda, x \geq 0\\
+	0& x < 0\\
+	\end{cases}\\
+\text{Gamma}& : (\alpha, \beta)-\text{Gamma}& F_{X}(x) & = \dfrac{\gamma\left(\alpha,\frac{x}{\beta}\right)}{\Gamma(\alpha)}\\
+ & & \gamma\left(\alpha, x\right)& = \int_{0}^{x}t^{a-1}e^{-t}\delta t\\
+\text{Weibull}& : (\alpha, \beta)-\text{Weibull}& F_{X}(x) & = 1 - e^{-\left(x/\beta\right)^{\alpha}}\\
+\end{align*}
+
+\pagebreak
+
+\section*{Hazard Functions}
+\begin{align*}
+\text{Uniform}& : [a,b]-\text{Uniform}& h_{X}(x) & = ???\\
+\text{Exponential}& : \lambda-\text{Exp}& h_{X}(x) & = ???\\
+\text{Gamma}& : (\alpha, \beta)-\text{Gamma}& h_{X}(x) & = ???\\ 
+\text{Weibull}& : (\alpha, \beta)-\text{Weibull}& h_{X}(x) & = \left(\frac{\alpha}{\beta}\right)\left(\frac{x}{\beta}\right)^{\left(\alpha - 1\right)}\\
+\end{align*}
+
+\pagebreak
+
+\section*{Moment Generating Functions}
+In general, $M_{X}(u) = E\left[e^{uX}\right] = \int_{-\infty}^{\infty}e^{ux}f_{X}(x)\delta x = 1 + uE[X] + \dfrac{u^{2}E\left[X^{2}\right]}{2!} + ... + \dfrac{u^{n}E\left[X^{n}\right]}{n!}$\\
+Therefore, $\dfrac{\delta^{k}}{\delta u^{k}}M_{X}(u)\vert_{u=0} = E\left[X^{k}\right]$ for $k = 0, 1, 2, ...$\\
+$M_{X_{1} + ... + X_{d}}(t) = M_{X_{1}}(t) \cdot\cdot\cdot M_{X_{d}}(t) = E\left[e^{tX_{1}} \cdot\cdot\cdot e^{tX_{d}}\right]$\\
+$M_{aX + b}(u) = e^{bu}M_{X}(au)$\\
+\begin{align*}
+\text{Uniform}& : [a,b]-\text{Uniform}& M_{X}(t)& = \dfrac{e^{tb}-e^{ta}}{t\left(b-a\right)}\\
+\text{Exponential}& : \lambda-\text{Exp}& M_{X}(t)& = \dfrac{\lambda}{\lambda - t}\\
+\text{Gamma}& : (\alpha, \beta)-\text{Gamma}& M_{X}(t)& = \left(\dfrac{1}{1 - \beta t}\right)^{\alpha}& \text{for } t < 1/\beta\\ 
+\text{Weibull}& : (\alpha, \beta)-\text{Weibull}& M_{X}(t)& = ???\\
+\end{align*}
+
+\pagebreak
+
+\section*{Mean Functions}
+\begin{align*}
+\text{Uniform}& : [a,b]-U& = \dfrac{a+b}{2}\\
+\text{Exponential}& : \lambda-\text{Exp}& = ???\\
+\text{Gamma}& : (\alpha, \beta)-\text{Gamma}& = \alpha\beta\\ 
+\text{Weibull}& : (\alpha, \beta)-\text{Weibull}& = ???\\
+\end{align*}
+
+\pagebreak
+
+\section*{Median Functions}
+\begin{align*}
+\text{Uniform}& : [a,b]-U& = \dfrac{a+b}{2}\\
+\text{Exponential}& : \lambda-\text{Exp}& = ???\\
+\text{Gamma}& : (\alpha, \beta)-\text{Gamma}& = ???\\ 
+\text{Weibull}& : (\alpha, \beta)-\text{Weibull}& = ???\\
+\end{align*}
+
+\pagebreak
+
+\section*{Variance Functions}
+\begin{align*}
+\text{Uniform}& : [a,b]-U& = \dfrac{\left(b-a\right)^{2}}{12}\\
+\text{Exponential}& : \lambda-\text{Exp}& = ???\\
+\text{Gamma}& : (\alpha, \beta)-\text{Gamma}& = \alpha\beta^{2}\\ 
+\text{Weibull}& : (\alpha, \beta)-\text{Weibull}& = ???\\
+\end{align*}
+
+\pagebreak
+
+\section*{Entropy Functions}
+\begin{align*}
+\text{Uniform}& : [a,b]-U& = ln\left(b-a\right)\\
+\text{Exponential}& : \lambda-\text{Exp}& = ???\\
+\text{Gamma}& : (\alpha, \beta)-\text{Gamma}& = ???\\ 
+\text{Weibull}& : (\alpha, \beta)-\text{Weibull}& = ???\\
+\end{align*}
+
+\pagebreak
+
+\part{Solved Problems}
+
+\section*{Winter 2006 Assignment 1}
+Combining RVs, Gamma Distributions, Weibull Distributions\\
+3.2.3, 3.2.6 (mistake found - Please use [a\_i,b\_i] instead of [0,1]), 3.2.7, 3.3.3 (ans: 2ln(4/3)), 3.3.4 (hint: see Stat 221 Notes on line), 3.3.5, 3.3.6, 3.4.1, 3.4.4, 3.4.5\\
+
+\section*{Winter 2006 Assignment 2}
+Combining RVs, Gamma Distributions, Weibull Distributions\\
+3.5.2, 3.5.4 (ans: 0.696735), 3.5.5, 3.5.6, 3.6.3, 3.6.4 (ans: 0.062), 3.6.9, 3.6.11, 3.7.1, 3.7.4 (ans: 0.696665)\\
+
+\section*{Winter 2006 Assignment 3}
+Hazard Rates, Laws of Large Numbers, Regression, Moment Generating Function\\
+3.8.2, 3.8.6, 3.8.7, 4.2.1, 4.2.2, 4.2.3 (There are typos in the errors. I always wanted to say that.), 4.2.4, 4.3.4, 4.3.5, 4.3.6\\
+
+\section*{Examples on pdf and calculus}
+
+\end{document} 
