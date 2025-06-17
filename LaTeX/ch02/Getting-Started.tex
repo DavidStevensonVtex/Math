@@ -362,4 +362,163 @@ Commands that are not fragile will be called \emph{robust}.
 
 \subsubsection{Displayed Material}
 
+The following is an example of a short displayed quotation.
+
+\begin{quote}
+\ldots\ it's a good idea to make your input file as easy to read as possible.
+\end{quote}
+
+It is indented at both margins.
+
+
+This example illustrates a type of \LaTeX\ construction called an \emph{environment}, which is typed
+
+\begin{quote}
+\textbackslash begin\{\emph{name}\} ... \textbackslash end\{\emph{name}\}
+\end{quote}
+
+where \emph{name} is the name of the environment.
+The \textbf{quote} environment produces a display suitable for a short quotation.
+You've already encountered two other examples of environments: the \textbf{math} environment and the 
+\textbf{document} environment.
+
+The standard \LaTeX\ document classes provide environments for producing several different kinds of displays.
+Blank lines before or after the environment mark a new paragraph. Thus, a blank line after the \textbackslash end 
+command means that the following text starts a new paragraph. Blank lines before and after the environment 
+mean that it is a complete paragraph.
+
+It's a bad idea to start a paragraph with displayed material, so you should not have a blank line before
+a display environment without a blank line after it. Blank lines immediately following a display environment's 
+\textbackslash begin command and emmediately preceding its \textbackslash end command are ignored.
+
+\subsubsection*{Quotations}
+
+\LaTeX\ provides two different environments for displaying quotations. The quote environment is used for 
+either a short quotation or a sequence of short quotations separated by blank lines.
+
+Our presidents have been known for their pithy remarks.
+\begin{quote}
+The buck stops here. \emph{Harry Truman}
+
+I am not a crook. \emph{Richard Nixon}
+
+It's no exaggeration to say the undecideds could go one way or another. \emph{George Bush}
+\end{quote}
+
+The \textbf{quotation} environment is used for quotations of more than one paragraph as usual, 
+the paragraphs are separated by blank lines.
+
+Here is some advice to remember when you are using \LaTeX. 
+\begin{quotation}
+Environments for making quotations can be used for other things as well.
+
+Many problems can be solved by novel applications of existing environments.
+\end{quotation}
+
+\subsubsection*{Lists}
+
+\LaTeX\ provides three list-making environments: 
+\textbf{itemize}, \textbf{enumerate} and \textbf{description}.
+In all three, each new list item is begun with an \textbackslash item command. 
+Itemized lists are made with the
+\textbf{itemize} environment and enumerated lists with the \textbf{enumerate} environment.
+
+\begin{itemize}
+    \item Each lst item is marked with a \emph{label}. The labels in this itemized list are bullets.
+    \item Lists can be nested within one another.
+    \begin{enumerate}
+        \item The item labels in an enumerated list are numerals or letters.
+        \item A list should have a least two items.
+    \end{enumerate}
+    \LaTeX\ permits at least four levels of nested lists, which is more than enough.
+
+    \item Blank lnes before an item have no effect.
+\end{itemize}
+
+In the \textbf{description} environment, you specify the item labels with an optional 
+argument to the \textbackslash item command, enclosed in brackets. (Although the argument
+is optional, the item will look funny if you omit it.)
+
+Three animals you should know about are:
+\begin{description}
+    \item[gnat] A small animal, found in the North Woods, that causes no end of trouble.
+    \item[gnu] A large animal, found in crossword puzzles, that causes no end of trouble.
+    \item[armadillo] a medium-sized animal, named after a medium sized Texas city. 
+\end{description}
+
+The characters [ and ] are used both to delimit and optional argument and to produce square
+brackets in the output. This can cause some confusion if the text of an item begins with a [ 
+or if an \textbackslash item command's optional argument contains a square bracket. 
+Section C.1.1 explains what to do in these uncommon situations. All commands that have an 
+optional argument are fragile.
+
+\subsubsection*{Poetry}
+
+Poetry is displayed with the \textbf{verse} environment. A new stanza is begun with 
+one or more blank lines; lines within the stanza are separated by the 
+\textbackslash \textbackslash\ command.
+
+\begin{verse}
+    There is an environment for verse \\
+    Whose features some poets will curse.
+
+    For isntead of making\\
+    Them do {\em all\/} line breaking, \\
+    It allows them to put too many words on a line 
+    when they'd rather be forced to be terse.
+\end{verse}
+
+The \textbackslash \textbackslash * command is the same as \textbackslash \textbackslash
+except that it prevents \LaTeX\ from starting a new page at that point. It can be used to
+prevent a poem from being broken across pages in a distracting way. The commands
+\textbackslash \textbackslash and \textbackslash \textbackslash * are used in all
+environments in which you tell \LaTeX\ where to break lines; several such environments 
+are described in the next chapter. The \textbackslash \textbackslash * command is called 
+the *-form of the \textbackslash \textbackslash\ command. 
+
+Several other commands also have *-forms--versions of the command that are slightly 
+different from the ordinary one--that are obtained by typing * after the command name.
+
+The \textbackslash \textbackslash and \textbackslash \textbackslash * commands have a little-used 
+optional argument described in section C.1.6, so putting a [ after them presents the same probelm as 
+for the \textbackslash item command. Moreover, the * in the \textbackslash \textbackslash * command 
+is somewhat like an optional argument for the \textbackslash textbackslash command, so following a 
+\textbackslash \textbackslash with a * in the text posees a similar problem. See Section C.1.1 for
+the solutions to these unlikely problems. Almost every command that has a *-form is fragile, and its 
+*-form is also fragile.
+
+\subsubsection*{Displayed Formulas}
+
+A mathematical formula is displayed when either it is too long to fit comfortably in the running text, 
+it is so important that you want it to stand out, or it is to be numbered for future reference.
+
+\LaTeX\ provides the \textbf{displaymath} and \textbf{equation} environments for displaying formulas;
+they are the same except that \textbf{equation} numers the formula and \textbf{displaymath} doesn't.
+
+Because displayed equations are used so frequently in mathematics, \LaTeX\ allows you to type 
+\textbackslash [ ... \textbackslash ] instead of 
+
+\begin{quote}
+    \textbackslash begin\{displaymath\} ... \textbackslash end\{displaymath\}
+\end{quote}
+
+Here is an example of an unnumbered displayed equation:
+\[ x' + y^{2} = z_{i}^{2} \] 
+and here is the same equation numbered:
+\begin{equation}
+    x' + y^{2} = z_{i}^{2}
+\end{equation}
+
+The document class determines how equations are numbered. Section 4.2 describes how \LaTeX\ 
+can automatically handle references to equation numbers so you don't have to keep track of
+the numbers.
+
+A displayed formula, like any displayed text, should not begin with a paragraph. Moreover, 
+it should not form a complete paragraph by itself. These two observations are summed up in a
+simple rule: in the input, never leave a blank line before a displayed formula.
+
+\TeX\ will not break the formula is a \textbf{displaymath} or \textbf{equation} environment across lines.
+See Section 3.3.5 for commands to create a single multiple-line formula or a sequence of displayed formulas.
+
+
 \end{document}                 % The input file ends with this command.
