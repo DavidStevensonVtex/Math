@@ -1,0 +1,147 @@
+% This is a small sample LaTeX input file (Version of 10 April 1994)
+%
+% Use this file as a model for making your own LaTeX input file.
+% Everything to the right of a  %  is a remark to you and is ignored by LaTeX.
+
+% The Local Guide tells how to run LaTeX.
+
+% WARNING!  Do not type any of the following 10 characters except as directed:
+%                &   $   #   %   _   {   }   ^   ~   \
+
+
+\documentclass[twocolumn]{article}        % Your input file must contain these two lines
+\usepackage[margin=1cm]{geometry} 
+
+\begin{document}               % plus the \end{document} command at the end.
+
+\section{Chapter 1: Getting Acquainted}
+
+\section{Chapter 2: Getting Started}
+
+\subsection{Preparing an Input File}
+
+\subsection{The Input}
+
+\subsubsection{Sentences and Paragraphs}
+
+Words are separated by one or more spaces.  Paragraphs are separated by
+one or more blank lines.  The output is not affected by adding extra
+spaces or extra blank lines to the input file.
+
+
+\subsubsection*{A Warning or Two}  % This command makes a subsection title.
+
+If you get too much space after a mid-sentence period---abbreviations
+like etc.\ are the common culprits)---then type a backslash followed by
+a space after the period, as in this sentence.
+
+\subsubsection*{Quotation Marks}
+
+Double quotes are typed like this: ``quoted text''.
+Single quotes are typed like this: `single-quoted text'.
+
+\subsubsection*{Dashes}
+
+You can produce three different sizes of dash by typing one, two, or three ``-'' characters:
+
+Intra-word dash: X-ray
+
+Medium dash: 1--2
+
+A punctuation dash---like this.
+
+Long dashes are typed as three dash characters---like this.
+
+\subsubsection*{Space After a Period}
+
+You tell TeX that a period doesn't end a sentence by using the backslash space command (a backslash followed by a space or end of line).
+
+Tinker et al.\ made the double play.
+
+Don't leave any space between the period and the backslash.
+
+\subsubsection*{Special Symbols}
+
+Remember, don't type the 10 special characters (such as dollar sign and
+backslash) except as directed!  The following seven are printed by
+typing a backslash in front of them:  \$  \&  \#  \%  \_  \{  and  \}.
+The manual tells how to make other symbols.
+
+\subsubsection*{Simple-Text-Generating Commands}
+
+Some people use plain \TeX, but I prefer \LaTeX.
+
+This page was produced on \today.
+
+The following is an ellipsis example.
+
+If nominated \ldots, I will not serve.
+
+\subsubsection*{Emphasizing Text}
+
+Emphasized text is typed like this: \emph{this is emphasized}.
+Bold       text is typed like this: \textbf{this is bold}.
+
+You can have \emph{empahsized text \emph{within} emphasized text} too.
+
+\subsubsection*{Preventing Line Breaks}
+
+Typesetters break lines between words when possible and split words only between syllables 
+(inserting a hyphen at the break).
+
+Sometimes a line should not be broken between or within words. Human typesetters recognize 
+these situations, but \TeX bust be told about some of them.
+
+Line breaking should be prevented at certain interword spaces.
+
+Typing a $\sim$ (a tilde character) produces ordinary interword space at which \TeX\ will never break a line.
+
+Below are some examples indicating when a $\sim$ should be used.
+
+Mr.~Jones
+
+Figure~7
+
+(1)~gnats
+
+U.~S.~Grant
+
+from 1 to~10
+
+The \textbackslash  mbox command tells \TeX\ to print its entire argument on the same line.
+
+Doctor \mbox{Lamport}, I presume?
+
+\subsubsection*{Footnotes}
+
+Footnotes are produced with the footnote command having the text of the footnote as its argument.
+
+Gnus\footnote{A gnu is a big animal.} can be quite a gnusance.
+
+A \textbackslash footnote command cannot be used in the argument of most commands;
+for example, it can't appear in the argument of an \textbackslash footnote command.
+
+\subsubsection*{Formulas}
+
+If you're writing a technical document, it's likely to contain mathematical formulas.
+A formula appearing in the middle of a sentence is enclosed by \textbackslash ( 
+and \textbackslash ) commands.
+
+Any spaces that you type in the formula are ignored.
+
+Does \( x + y \) always equal \(y+x\)?
+
+\TeX\ regards a formula as a word, which may be broken across lines at certain points, 
+and space before the \textbackslash (  or after the \textbackslash ) is treated as an 
+ordinary interword separation.
+
+Subscripts are produced by the \_ command and superscripts by the \^{} command.
+
+\( a_{1} > x^{2n} / y^{2n} \)
+
+These two commands can only be used inside a mathematical formula.
+
+When used in a formula, the right-quote character ' produces a prime (\('\)),
+two in a row produce a double prime.
+
+\end{document}                 % The input file ends with this command.
