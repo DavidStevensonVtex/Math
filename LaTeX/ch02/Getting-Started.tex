@@ -520,5 +520,33 @@ simple rule: in the input, never leave a blank line before a displayed formula.
 \TeX\ will not break the formula is a \textbf{displaymath} or \textbf{equation} environment across lines.
 See Section 3.3.5 for commands to create a single multiple-line formula or a sequence of displayed formulas.
 
+\subsubsection{Declarations}
+
+You may want to emphasize a large piece of text, such as a quotation. You can do this with the \emph command, 
+but that makes the input file hard to read because you have to search for the closing right brace to see where 
+the argument ends. Moreover, it's easy accidentally to delete the closing brace when you edit the text. Instead, 
+you can use the \textbf{\textbackslash em} command, which tells \TeX\ to start emphasizing text.
+
+\hfill \break \noindent
+This prose is very dull.
+\begin{quote}
+Wait! \em Her is an exciting quote.
+\end{quote}
+Aren't you glad all that excitement is over?
+
+\hfill \break \noindent
+As explained below, the \textbf{\textbackslash end\{quote\}} cause \TeX\ to stop emphasizing text.
+
+Unlike other commands you've encountered so far, \textbf{\textbackslash em} produces neither text nor space;
+instead if affects the way \LaTeX\ prints the text that follows it. Such a command is called a 
+\emph{declaration}. Most aspects of the way \LaTeX\ formats a document--the type style, how wide the margins are,
+and so on--are determined by declarations.
+The \textbf{\textbackslash em} declaration instructs \LaTeX\ to change the type style to the appropriate one 
+for indicating emphasis.
+The \emph{scope} of a declaration is ended by the first \textbf{\textbackslash end} command or right brace.
+In the input, braces and \textbf{\textbackslash begin} and \textbf{\textbackslash end} commands must come in
+matched pairs. The scope of a declaration is ended by the first \textbf{\textbackslash end} or \} whose matching 
+\textbf{\textbackslash begin} or \{ precedes the declaration.
+
 
 \end{document}                 % The input file ends with this command.
