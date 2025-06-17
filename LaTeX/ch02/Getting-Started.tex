@@ -144,4 +144,222 @@ These two commands can only be used inside a mathematical formula.
 When used in a formula, the right-quote character ' produces a prime (\('\)),
 two in a row produce a double prime.
 
+\break
+\( x' < x'' - y'_{3} < 10 x''' z\).
+
+The formula \( a<7 \) is a noun in this sentence.
+It is sometimes used as a clause by writing that \( a<7 \).
+
+Beginning a sentence with a formula makes it hard to find the start of the 
+sentence; don't do it.
+
+A variable like \( x \) is a formula. To save you some typing, \LaTeX\ treats
+\$...\$ the same as \textbackslash (...\textbackslash ).
+
+Let $x$ be a prime such that $y>2x$.
+
+Use \$...\$ only for a short formula, such as a single variable. 
+It's easy to forget one of the \$ characters that surrounds along formula.
+You can also type
+
+\textbackslash begin\{math\} ... \textbackslash end\{math\}
+
+\noindent
+instead of \textbackslash ( ... \textbackslash (. You might want to use this form 
+for a very long formula.
+
+\subsubsection*{Ignorable Input}
+
+When \TeX\ encounters a \% character in the input, it ignores the \% and all 
+characters following it on that line -- including the space charactr that ends the line.
+\TeX\ also ignores spaces at the beginning of the next line.
+
+Gnus and armadi% More @_#!$^{& gnus?
+llos are generally tolerant of one another and seldom quarrel.
+
+The \% has two uses: ending a line without producing any space in the output
+]footnote{However, you can't split a command across two lines.}
+and putting a comment (a note to yourself) in the input file.
+
+\subsubsection{The Document}
+
+The text of every document starts with \textbackslash begin\{document\} command
+and ends with an \textbackslash end\{document\}. The part of the input file preceding
+the \textbackslash begin\{document\} command is called the \emph{preamble}.
+
+\subsubsection*{The Document Class}
+
+The preamble begins 
+\footnote{As explained in Section 4.7, the \textbackslash documentclass 
+command may actually be preceeded by prepended files.}
+with a \textbackslash documentclass command whose argument is one of the
+predefined classes of document that \LaTeX\ knows about. The file sample2e.tex
+begings with
+
+\textbackslash documentclass\{article\}
+
+\noindent
+which selects the article class. The other standard \LaTeX\ classs used for ordinary
+documents is the report class. The article class is generally used for shorter
+documents than the report class. Other standard classes are described in Chapter 5.
+
+In addiction to choosing the class, you can also select from among certain document-class options.
+The options for the article and report classes include the following.
+
+\hfill \break
+\emph{11pt}    Specifies a size of type known as \emph{eleven point}, which is ten percent larger 
+than the ten-point type normally used.
+
+\hfill \break
+\noindent
+\emph{12pt}    Specifies a twelve-point type size, which is twenty percent larger than ten point.
+
+\hfill \break
+\emph{twoside} Formats the output for printing on both sides of the page. (\LaTeX\ has no control over the actual printing.)
+
+\hfill \break
+\emph{twocolumn} Produces two-column output.
+
+You specify a document-class option by enclosing it in square brackets immediately after 
+the ``\textbackslash documentclass'', as in
+
+
+\textbackslash documentclass[twoside]\{report\}
+
+\noindent
+Multiple options are separated by commas.
+
+\textbackslash documentclass [twocolumn,12pt]\{article\}
+
+Don't leave any space inside the square brackets.
+
+The \textbackslash documentclass command can be used either with or without the option-choosing part.
+The options, enclosed in square brackets are an \emph{optional argument} of the command. It is a \LaTeX\ 
+convention that optional arguments are enclosed in square brackets, while mandatory arguments are enclosed
+in curly braces. \TeX\ ignores spaces after a command like \textbackslash documentclass and 
+between command arguments.
+
+The document class defines commands for specifying \LaTeX\'s standard logical structures. Additional structures 
+are defined by \emph{packages}, which are loaded by the \textbackslash usepackage command. For example, the command 
+
+\textbackslash usepackage\{latexsym\}
+
+\noindent 
+loads the latexsym package, which defines commands to produce certain special math symbols. (See Section 3.3.2).
+A package can have options, specified by an optional argument of \textbackslash usepackage just like the one for 
+\textbackslash documentclass.
+
+You will probably want to define some new commands for the special structures used in your particular document.
+For example, if you're writing a cookbook you will probably define your own commands for formatting recipes, as
+explained in Section 3.4. These definitions should go in the preamble, after the \textbackslash documentclass and 
+\textbackslash commands. The preamble can also contain commands to change some aspects of the formatting.
+If you have commands or format changes that you use in several documents, you may want to define your own package,
+as described in Section 6.1.4.
+
+\subsubsection*{The Title ``Page''}
+
+A document usually has a title ``page'' listing its title, one or more authors, and a date. I write ``page'' in quotes, 
+because, for a short document, this information may be listed on the first page of text rather than on its own page.
+The title information consits of the title itself, the author(s), and the date, it is specified by the three declarations
+\textbackslash title, \textbackslash author, and \textbackslash date. The actual title ``page'' is generated by a 
+\textbackslash maketitle command.
+
+\textbackslash title\{Gnus of the World\}
+
+\textbackslash author\{R. Dather \textbackslash and J. Pennings \textbackslash and B. Talkmore\}
+
+\textbackslash date\{4 July 1997\}
+
+\textbackslash maketitle
+
+Note how multiple authors are separated by \textbackslash and commands.
+
+The \textbackslash command comes after the \textbackslash begin\{document\}, usually before any other text. 
+The \textbackslash title, \textbackslash author, and \textbackslash date commands can come anywhere before
+the \textbackslash maketitle. The \textbackslash date is optional; \LaTeX\ supplies the current date if 
+the declaration is omitted, but the \textbackslash title and \textbackslash author must appear if a 
+\textbackslash make title command is used. 
+
+Commands for adding other information, such as the author's address and an acknowledgement of support, are
+described in Section C.5.4.
+
+\subsubsection{Sectioning}
+
+Sentences are organized into paragraphs, and paragraphs are in turn organized into a hierarchical 
+\emph{section structure}. You are currently reading Subsection 2.2.3, titled \emph{Sectioning},
+which is part of Section 2.2, titled \emph{The Input}, which in turn is part of Chapter 2, titled 
+\emph{Getting Started}. I will use the term \emph{sectional units} for things like chapters, sections,
+and subsections.
+
+A sectional unit is begun by a sectioning command with the unit's title as its argument.
+
+\hfill \break
+\textbackslash subsection\{A Sectioning Command\}
+
+produces
+
+\textbf{4.7 A Sectioning Command}
+
+\LaTeX\ automatically generates the section number. Blank lnes before or after a sectioning command have no effect.
+
+The document class determines what sectioning commands are provided; the standard classes have the following ones.
+\footnote{The names \textbackslash paragraph and \textbackslash subparagraph are unfortunate, since they denote units
+that are often composed of several paragraphs; they have been retained for historical reasons.}
+
+\textbackslash part 
+
+\textbackslash subsection 
+
+\textbackslash paragraph
+
+\textbackslash chapter 
+
+\textbackslash subsubsection 
+
+\textbackslash subparagraph
+
+\textbackslash section 
+
+The article document class does not contain a \textbackslash chapter command, which makes it easy to include an 
+``article'' as a chapter of a ``report''. The example above, like most others in this book, assumes the article
+document class, the 4.7 indicating that this is the seventh subsection of Section 4. In the report class, 
+this subsection might be numbered 5.4.7, with the ``5'' being the chapter number.
+
+The \textbackslash part command is used for major divisions of long documents; it does not affect the numbering
+of smaller units -- in the article class, if the last section of Part 1 is Section 5, then the first section of
+Part 2 is Section 6.
+
+If there is an appendix, it is begun with an \textbackslash appendix command uses the same sectioning commands
+as the main part of the document. The \textbackslash appendix command does not produce any text; it simply causes
+sectional units to be numbered properly for an appendix.
+
+The document class determines the appearance of the section title, including whether or not it is numbered. 
+Declarations to control section numbering are described in Section C.4, which also tells you how to make a 
+table of contents.
+
+The argument of a sectioning command may be used for more than just producing the section title; it can generate 
+a table of contents entry and a running head at the top of the page. (Running heads are discussed in Section 6.1.2.)
+
+Fragile commands are rarely used in the argument of a sectioning command. Of the commands introduced so far, the only
+fragile ones are \textbackslash (, \textbackslash ),  \textbackslash begin, \textbackslash end,  and 
+\textbackslash footnote -- none of which you're likely to need in a section title.
+\footnote{Section C.3.3 tells you how to footnote a section title.}
+On the rare occasions when you have to put a fragile command in a section title, you simply protect it with a 
+\textbackslash protect command.
+The \textbackslash protect command goes right before every fragile command's name, as in:
+
+\textbackslash subsection \{Is \textbackslash protect\textbackslash (  x+y   \textbackslash protect\textbackslash ) Prime?\}
+
+This is actually a silly example, because \$ is not a fragile command, so you can instead type
+
+\textbackslash subsection \{Is \textbackslash \$x+y\$ Prime?\}
+
+/noindent
+but because the problem is so rare, it's hard to find a good example using the commands described in this chapter.
+
+An argument in which fragile commands need \textbackslash protect will be called a \emph{moving} argument.
+Commands that are not fragile will be called \emph{robust}.
+
+\subsubsection{Displayed Material}
+
 \end{document}                 % The input file ends with this command.
