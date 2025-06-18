@@ -1,0 +1,105 @@
+% This is a small sample LaTeX input file (Version of 10 April 1994)
+%
+% Use this file as a model for making your own LaTeX input file.
+% Everything to the right of a  %  is a remark to you and is ignored by LaTeX.
+
+% The Local Guide tells how to run LaTeX.
+
+% WARNING!  Do not type any of the following 10 characters except as directed:
+%                &   $   #   %   _   {   }   ^   ~   \
+
+
+\documentclass[twocolumn]{book}        % Your input file must contain these two lines
+\usepackage[margin=1cm]{geometry} 
+
+\begin{document}               % plus the \end{document} command at the end.
+
+\chapter{Getting Acquainted}
+
+\chapter{Getting Started}
+
+\chapter{Carrying On}
+
+Three modes
+\footnote{Paragraph mode corresponds to the vertical and ordinary horizontal modes in {\em The \TeX{}book}, and 
+LR mode is called restricted horizontal mode there. \LaTeX\ also has a restricted form of LR mode called 
+{\em picture} mode that is described in Section 7.1.}
+:
+
+\begin{enumerate}
+\item \textbf{paragraph mode} input as a sequence of words and sentences to be broken into lines, paragraphs and pages.
+\item \textbf{math mode} Math mode begins with a command like \$ or \textbackslash ( or \textbackslash [ or 
+\textbackslash begin\{equation\}, and leaves when finding the corresponding command that ends the formula.
+\item \textbf{left-to-right mode or LR mode} LR mode consisers your input to be a string of words with spaces between them. 
+It keeps going from left to right; it never starts a new line.
+\end{enumerate}
+
+\section{Changing the Type Style}
+
+Type style is used to indicate logical structure. In this book, emphasized text appears in {\em italic} style type and 
+\LaTeX{} input in {\tt typewriter} style. In \LaTeX{}, a type style is specified by three components: 
+shape, series, and family.
+
+\subsubsection*{Shapes}
+\begin{itemize}
+    \item Upgright shape (default).  \textbackslash textup\{Upgright shape...\}
+    \item {\em Italic shape}. \textbackslash textit\{Italic shape...\}
+    \item \textsl{Slanted shape}. \textbackslash textsl\{Slanted shape...\}
+    \item \textsc{Small Caps Shape.} \textbackslash textsc\{Small caps shape...\}
+\end{itemize}
+\subsubsection*{Series}
+\begin{itemize}
+    \item \textmd{Medium series (default)}. \textbackslash textmd\{Medium series...\}
+    \item \textbf{Boldface series}. \textbackslash textbf\{Boldface series...\}
+\end{itemize}
+\subsubsection*{Family}
+\begin{itemize}
+    \item \textrm{Roman family (default)}. \textbackslash textrm\{Roman family...\}
+    \item \textsf{Sans serif family}. \textbackslash textsf\{Sans serif family....\}
+    \item \texttt{Typewriter family}. \textbackslash texttt\{Typewriter family...\}
+\end{itemize}
+
+These commands can be combined in a logical fashion to produce a wide vaiety of type styles.
+
+\textsf{\textbf{Who \textmd{on} Earth}} is \textit{\texttt{ever}} 
+going to use boldface sans serif or an italic typewriter type style?
+
+Each of the text-style commands described above has a corresponding declaration.
+Boldface text can be obtained with either the {\textbf \textbackslash textbf} text-producing
+command or the {\textbf \textbackslash bfseries} declaration.
+
+\textbf{More} and {\bfseries more} armadillos are crossing the road.
+
+The declarations corresponding to the text-producing commands are:
+
+\begin{itemize}
+    \item \textbf{cmd} \textbf{decl}
+    \item \textbackslash textup \textbackslash upshape
+    \item \textbackslash textit \textbackslash itshape
+    \item \textbackslash textsl \textbackslash slshape
+    \item \textbackslash textsc \textbackslash scshape
+    \item \textbackslash textmd \textbackslash upshape
+    \item \textbackslash textbf \textbackslash upshape
+    \item \textbackslash textrm \textbackslash upshape
+    \item \textbackslash textsf \textbackslash upshape
+    \item \textbackslash texttt \textbackslash upshape
+    \item \textbackslash textup \textbackslash upshape
+\end{itemize}
+
+None of test text-producing commands or declarations can be used in math mode.
+Section 3.3.8 explains how to change type style in a mathematical formula.
+
+Type style is a visual property.
+Commands to specify visual properties belong not in the text, but in the 
+definitions of commands that describe logical structure.
+\LaTeX\ provides the \textbf{\textbackslash emph} command for emphaiszed text;
+Section 3.4 explains how to define your own commands for the logical structure in your document.
+
+\section{Symbols from Other Languages}
+
+The \textbf{\tt babel} package allows you to produce documents in languages other than English,
+as well as multilanguage documents.
+
+
+
+\end{document}                 % The input file ends with this command.
