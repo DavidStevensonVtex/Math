@@ -362,4 +362,73 @@ As a displayed formula:
 but in text:
 \( \lim_{n \rightarrow \infty} x = 0 \) 
 
+\subsection{Arrays}
+
+\subsubsection{The \texttt{array} Environment}
+
+Arrays are produced with the \texttt{array} environment. It has a single argument that 
+specifies the number of columbs and the alignment of items within the columns.
+For each column in the array, there is a single letter in the argument that specifies how
+items in the column should be positioned: \texttt{c} for centered, \texttt{l} for flush left,
+or \texttt{r} for flush right. Within the body of the environment, adjacent frows are separated
+by a \textbackslash \textbackslash command and adjacent items with a row are separated by an 
+\texttt{\&} character.
+
+\hfill \break 
+\( \begin{array}{clcr}
+    a+b+c   & uv    & x-y   & 27    \\
+    a+b     & u-v   & z     & 134   \\
+    a       & 3u+vw & xyz   & 2,978 \\
+\end{array} \)
+
+There must be no \texttt{\&} after the last item in a row and no \textbackslash \textbackslash after the last row.
+\TeX\ is in math mode when processing each array element, so it ignores spaces.
+Don't put any exprac space in the argument.
+
+In mathematical formulas, array columns are usually centered. However, a column of numbers often looks best flush right.
+Section 3.3.4 describes how to put large parentheses or vertical lines around an array to make a matrix or determinant.
+
+Each item in an array is a separate formula, just as if it were in its own \texttt{math} environment.
+A declaration that appears in an item is local to the item;
+its scope is ended by the \texttt{\&}, \textbackslash \textbackslash, or \texttt{\textbackslash end\{array\}}
+
+The \textbackslash \textbackslash is fragile.
+
+\subsubsection{Vertical Alignment}
+
+\TeX\ draws an imaginary horizontal line through every formula, at the height where the minus sign at the
+beginning of the formula would go. An individual array item is itself a formula with a center line. The items in a 
+row of an array are positioned vertically so their center lines are all at the same height.
+
+Normally, the center line of an array lies where you would expect it, halfway between the top and bottom. You 
+can change the position of an array's center line by giving an optional one-letter argument to 
+the \texttt{array} environment: the argument \texttt{t} makes it line up with the top row's center line, while \texttt{b}
+makes it line up with the bottom row's center line.
+
+The box around each array in the following formula is for clarity; it is not produced by the output:
+
+\[ x - \begin{array}{c}
+    a_{1} \\ \vdots \\ a_{n}
+\end{array}
+- \begin{array}[t]{cl}
+    u-v     & 13 \\
+    u+v     \begin{array}[b]{r}
+             12 \\ -345
+    \end{array}
+\end{array}   \]
+
+\subsubsection{More Complex Arrays}
+
+Visual formatting is sometimes necessary to get an array to look right. Section C.1.6 explains 
+how to change the vertical space between two rows; Sections 3.3.7 eand 6.4.2 describe commands for 
+adding horizontal space within a n item; and Section C.10.2 tells how to add horizontal space 
+between columns. The \texttt{array} environment has a number of additional features for making more 
+complex array;s they are described in Section C.10.2. The \LaTeX\ \emph{Companion} describes packages 
+that provide additional features for the \texttt{array} environment.
+
+The \texttt{array} environment can be used only in math mode and is meant for arrays of formulas; 
+Section 3.6.2 describes an analogous \texttt{tabular} environment for making arrays of ordinary text items. 
+The \texttt{array} environment is almost always used in a displayed formula, but it can appear in an in-text 
+formula as well.
+
 \end{document}
