@@ -3,6 +3,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{textcomp}
+\usepackage{latexsym}
+
+
 
 \begin{document}               % plus the \end{document} command at the end.
 
@@ -203,10 +206,160 @@ Use \texttt{\textbackslash ldots} between commas and between juxtaposed symbols 
 use \texttt{\textbackslash cdots} between symbols like +, -, and =. \TeX\ can also produce verticaland
 diagonal ellipsis, which are used mainly in arrays.
 
-
 $\vdots$ \texttt{\textbackslash vdots}
 
-
 $\ddots$ \texttt{\textbackslash ddots}
+
+\subsection{Mathematical Symbols}
+
+Remember that mathematical symbols can be used only in math mode.
+
+\subsubsection{Greek Letters}
+
+The command to produce a lowercase Green letter is obtained by adding a \textbackslash to
+the name of the letter. For an uppercase Greek letter, just capitalize the first letter of 
+the command name.
+
+Making Greek letters is as easy as $\pi$ (or $\Pi$).
+
+If the uppercase Greek letter is the same as its Roman equivalent, as in uppercase alpha,
+then there is no command to generate it. A complete list of commands for making Greek
+letters appears in Table 3.3. Note that some of the lowercase letters may have variant forms,
+made by commands beginning with  \texttt{\textbackslash var}. Also, observe that there's no
+special command for an omicron, you just use an \texttt{o}.
+
+\emph{Lowercase}
+
+\begin{itemize}
+    \item $\alpha$ \texttt{\textbackslash alpha}
+    \item $\beta$ \texttt{\textbackslash beta}
+    \item $\gamma$ \texttt{\textbackslash gamma}
+    \item $\delta$ \texttt{\textbackslash delta}
+    \item $\epsilon$ \texttt{\textbackslash epsilon}
+    \item $\varepsilon$ \texttt{\textbackslash varepsilon}
+    \item $\eta$ \texttt{\textbackslash eta}
+    \item $\theta$ \texttt{\textbackslash theta}
+    \item $\vartheta$ \texttt{\textbackslash vartheta}
+    \item $\iota$ \texttt{\textbackslash iota}
+    \item $\kappa$ \texttt{\textbackslash kappa}
+    \item $\mu$ \texttt{\textbackslash mu}
+    \item $\nu$ \texttt{\textbackslash nu}
+    \item $\xi$ \texttt{\textbackslash xi}
+    \item $o$ \texttt{o}
+    \item $\pi$ \texttt{\textbackslash pi}
+    \item $\varpi$ \texttt{\textbackslash varpi}
+    \item $\rho$ \texttt{\textbackslash rho}
+    \item $\varrho$ \texttt{\textbackslash varrho}
+    \item $\sigma$ \texttt{\textbackslash sigma}
+    \item $\varsigma$ \texttt{\textbackslash varsigma}
+    \item $\tau$ \texttt{\textbackslash tau}
+    \item $\upsilon$ \texttt{\textbackslash upsilon}
+    \item $\phi$ \texttt{\textbackslash phi}
+    \item $\varphi$ \texttt{\textbackslash varphi}
+    \item $\chi$ \texttt{\textbackslash chi}
+    \item $\psi$ \texttt{\textbackslash psi}
+    \item $\omega$ \texttt{\textbackslash omega}
+\end{itemize}
+
+\emph{Uppercase}
+
+\begin{itemize}
+    \item ${\Gamma}$ \texttt{\textbackslash Gamma}
+    \item ${\Delta}$ \texttt{\textbackslash Delta}
+    \item ${\Theta}$ \texttt{\textbackslash Theta}
+    \item ${\Lambda}$ \texttt{\textbackslash Lambda}
+    \item ${\Xi}$ \texttt{\textbackslash Xi}
+    \item ${\Pi}$ \texttt{\textbackslash Pi}
+    \item ${\Sigma}$ \texttt{\textbackslash Sigma}
+    \item ${\Upsilon}$ \texttt{\textbackslash Upsilon}
+    \item ${\Phi}$ \texttt{\textbackslash Phi}
+    \item ${\Psi}$ \texttt{\textbackslash Psi}
+    \item ${\Omega}$ \texttt{\textbackslash Omega}
+\end{itemize}
+
+\subsubsection{Calligraphic Letters}
+
+\TeX\ provides twenty-size calligraphic letters 
+$\mathcal{A}, \mathcal{B}, \ldots, \mathcal{Z}$, also called script letters.
+They are provided by a special type style invoked with the \texttt{\textbackslash mathcal}
+command.
+
+The shaded symbols require the \texttt{latexsym} package to be loaded with 
+a \texttt{\textbackslash usepackage} command.
+
+Additional symbols can be made by stacking one symbol on top of another with the 
+\texttt{\textbackslash stackrel} command of Section 3.3.6 or the array environment 
+of Section 3.3.3.
+
+If $x \not< y$ then \( x \not\leq y-1\).
+
+\emph{Binary Operation Symbols}
+
+
+\begin{itemize}
+    \item $\pm$ \texttt{\textbackslash pm}
+    \item $\mp$ \texttt{\textbackslash mp}
+    \item $\times$ \texttt{\textbackslash times}
+    \item $\div$ \texttt{\textbackslash div}
+    \item $\ast$ \texttt{\textbackslash ast}
+    \item $\star$ \texttt{\textbackslash star}
+    \item $\circ$ \texttt{\textbackslash circ}
+    \item $\bullet$ \texttt{\textbackslash bullet}
+    \item $\cdot$ \texttt{\textbackslash cdot}
+    \item $\cap$ \texttt{\textbackslash cap}
+    \item $\cup$ \texttt{\textbackslash cup}
+    \item $\uplus$ \texttt{\textbackslash uplus}
+    \item $\sqcap$ \texttt{\textbackslash sqcap}
+    \item $\sqcup$ \texttt{\textbackslash sqcup}
+    \item $\vee$ \texttt{\textbackslash vee}
+    \item $\wedge$ \texttt{\textbackslash wedge}
+    \item $\setminus$ \texttt{\textbackslash setminus}
+    \item $\wr$ \texttt{\textbackslash wr}
+    \item $\diamond$ \texttt{\textbackslash diamond}
+    \item $\bigtriangleup$ \texttt{\textbackslash bigtriangleup}
+    \item $\bigtriangledown$ \texttt{\textbackslash bigtriangledown}
+    \item $\triangleleft$ \texttt{\textbackslash triangleleft}
+    \item $\triangleright$ \texttt{\textbackslash triangleright}
+    \item $\lhd$ \texttt{\textbackslash lhd}
+    \item $\rhd$ \texttt{\textbackslash rhd}
+    \item $\unlhd$ \texttt{\textbackslash unlhd}
+    \item $\unrhd$ \texttt{\textbackslash unrhd}
+    \item $\oplus$ \texttt{\textbackslash oplus}
+    \item $\ominus$ \texttt{\textbackslash ominus}
+    \item $\otimes$ \texttt{\textbackslash otimes}
+    \item $\oslash$ \texttt{\textbackslash oslash}
+    \item $\odot$ \texttt{\textbackslash odot}
+    \item $\bigcirc$ \texttt{\textbackslash bigcirc}
+    \item $\dagger$ \texttt{\textbackslash dagger}
+    \item $\ddagger$ \texttt{\textbackslash ddagger}
+    \item $\amalg$ \texttt{\textbackslash amalg}
+\end{itemize}
+
+Here's how they look when displayed:
+\[\sum_{i=1}^{n} x_{i} = \int_{0}^{1}f \]
+and in the text:
+\(\sum_{i=1}^{n} x_{i} = \int_{0}^{1}f \)
+
+Section 3.3.8 tells how to coerce \TeX\ into producing \(\sum_{i=1}^{n}\) 
+in a displayed formula and \(\sum_{i=1}^{n}\)  in an in-text formula.
+
+\subsubsection{Log-like Functions}
+
+Logarithms obey the law: \( \log xy = \log x + \log y \).
+
+\( \gcd(m,n) = a \bmod b \) 
+
+\( x \equiv y \pmod{a+b} \)
+
+Note that \texttt{\textbackslash pmod} has an argument and produces parentheses, while 
+\texttt{\textbackslash bmod} produces only the ``mod''.
+
+Some log-like functions act the same as the variable-sized symbols of Table 3.8 with 
+respect to subscripts.
+
+As a displayed formula:
+\[ \lim_{n \rightarrow \infty} x = 0 \]
+but in text:
+\( \lim_{n \rightarrow \infty} x = 0 \) 
 
 \end{document}
