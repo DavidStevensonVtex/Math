@@ -1,13 +1,14 @@
-% !TEX program = xelatex
-
 \documentclass[twocolumn]{book}        % Your input file must contain these two lines
 \usepackage[margin=1cm]{geometry} 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
 
 \begin{document}               % plus the \end{document} command at the end.
 
-% \chapter{Getting Acquainted}
+\chapter{Getting Acquainted}
 
-% \chapter{Getting Started}
+\chapter{Getting Started}
 
 \chapter{Carrying On}
 
@@ -120,5 +121,92 @@ The following six special punctuation symbosl can be used in amy mode:
     \item \copyright \textbackslash copyright
     \item \pounds \textbackslash pounds
 \end{itemize}
+
+\section{Mathematical Formulas}
+
+A formula that appears in the running text, called an {\em in-text} formula, is produced by 
+the {\texttt{\textbf{math}}} environment. This environment can be invoked with either of the
+two shortforms \textbackslash ( ... \textbackslash ) or \$...\$ as well as by the usual 
+\textbackslash {\bf begin} ... \textbackslash {\bf end} construction.
+
+The {\texttt{\textbf displaymath}} enviornment, which has the short form 
+\textbackslash [...\textbackslash ], produces an unnumbered displayed formula.
+The short forms \$...\$, \textbackslash (...\textbackslash ), and 
+\textbackslash [...\textbackslash ] act as full-fledged environments.
+A numbered displayed formula is produced by the \textbf{equation} environment.
+Section 4.2 describes commands for assigning names to equation numbers and referring
+to the numbers by name, so you don't have to keep track of the actual numbers.
+
+The \texttt{\textbf math}, \texttt{\textbf{displaymath}}, and \texttt{\textbf{equation}}
+environments put \TeX\ in math mode. \TeX\ ignores spaces in the input when it's in math mode
+(but space characters ma still be needed to mark the end of a command name).
+Section 3.3.7 describes how to add and remove space in formulas. Remember that
+\TeX\ is in LR mode, where spaces in the input generate space in the output,
+when it begins processing the argument of an \textbackslash{\tt mbox} command--even 
+one that appears inside a formula.
+
+All the commands introduced in this section can be used only in math mode,
+unless it is explicitly stated that they can be used elsewhere. Except as noted, they are all robust.
+However, \textbackslash{\tt begin}, \textbackslash{\tt end}, \textbackslash (, \textbackslash ),
+\textbackslash [, and \textbackslash ] are fragile commands.
+
+\subsection{Some Common Structures}
+
+\subsubsection*{Subscripts and Superscripts}
+
+Subscripts and superscripts are made with the \_ and \^\ commands.
+
+\begin{itemize}
+    \item $x^{2y}$ -- $x$\char `^\{$2y$\}
+    \item $x_{2y}$ -- $x$\_\{$2y$\}
+    \item $x^{y^2}$
+    \item $x^{y_1}$
+    \item $x^{y}_{1}$
+    \item $x_{1}^{y}$
+\end{itemize}
+
+\subsubsection*{Fractions}
+
+Fractions denoted by the / symbol are made in the obvious way.
+
+Multiplying by $n/2$ gives \( (m+n)/n \).
+
+Most fractions in the running text are written this way. The \textbackslash{\tt frac} command 
+is used for large fractions in displayed formulas; it has two arguments:
+the numerator and the denominator.
+
+\[ x = \frac{y+z/2}{y^{2}+1} \]
+
+\[ x = \frac{(y+z)/2}{y^{2}+1} \]
+
+\[ \frac{x+y}{1 + \frac{y}{z+1}} \]
+
+The \textbackslash{\tt frac} command can be used in an in-text formula to produce a fraction like
+$\frac{1}{2}$ (by typing \$\textbackslash{frac\{1\}\{2\}}), but this is seldom done.
+
+\subsubsection*{Roots}
+
+The \textbackslash sqrt command produces the square root of its argument; it has an optional first 
+argument for other roots. It is a fragile command.
+
+A square root $\sqrt{x+y}$ and an \emph{n}th root $\sqrt[n]{2}$.
+
+\subsubsection{Ellipsis}
+
+The commands \texttt{\textbackslash ldots} between commas produce two different kinds of ellipsis.
+
+A low ellipsis: $x_{1}, \ldots ,x_{n}$.
+
+A centered ellipsis: $a + \cdots + z$.
+
+Use \texttt{\textbackslash ldots} between commas and between juxtaposed symbols like $a\ldots z$; 
+use \texttt{\textbackslash cdots} between symbols like +, -, and =. \TeX\ can also produce verticaland
+diagonal ellipsis, which are used mainly in arrays.
+
+
+$\vdots$ \texttt{\textbackslash vdots}
+
+
+$\ddots$ \texttt{\textbackslash ddots}
 
 \end{document}
