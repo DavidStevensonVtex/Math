@@ -532,4 +532,81 @@ doing it poorly can make the formula hard to understand, so you must do it yours
 that the formula may have to be reformatted if you change notation (changing the formula's length) 
 or if you change the style of your document (changing the line length).
 
+\subsection{Putting One Thing Above Another}
+
+Symbols in a formula are sometimes placed one above another. The \texttt{array} 
+environment is good for vertically stacking subformulas, but not smaller pieces --
+you wouldn't use it to put a bar over an $x$ to form $\overline x$. \LaTeX\ provides special 
+commands for doing this and some other common kinds of symbol stacking.
+
+\subsubsection{Over- and Underlining}
+
+The \textbackslash \texttt{overline} command puts a horizontal line above its argument.
+
+You can have nexted overlining: $\overline {\overline{x}^2 + 1}$.
+
+There's an analogous \textbackslash \texttt{underline} command for underlining that works in paragraph 
+and LR mode as well as math mode, but it's seldom used in formulas.
+
+\underline{The} value is $\underline{3x}$.
+
+The \textbackslash \texttt{underline} command is fragile.
+
+Horizontal braces are put above or below an expression with the \textbackslash \texttt{overbrace} and 
+\textbackslash \texttt{underbrace} commands.
+
+\( \overbrace{a + \underbrace{b + c} + d} \)
+
+In a displayed formula, a subscript or superscript puts a label on the brace.
+
+\[ \underbrace{a + \overbrace{b + \cdots + y}^{24} + z }_{26} \]
+
+\subsubsection{Accents}
+
+The accent commands described in Section 3.2.1 are for ordinary text and cannot be used in math mode.
+Accents in formulas are produced with the commands shown in Table 3.11. The letter $a$ is used as an 
+illustration: the accents work with any letter.
+
+Wide versions of the \textbackslash \texttt{hat} and \textbackslash \texttt{tilde} are produced by the 
+\textbackslash \texttt{widehat} and \textbackslash \texttt{widetilde} commands. These commands try to choose 
+the appropriate sized accent to fit over their argument, but they can't produce very wide accents.
+
+
+\begin{tabular}{l l l l}
+        $\hat{a}$ \textbackslash \texttt{hat\{a\}}          &   
+        $\acute{a}$ \textbackslash \texttt{accute\{a\}}     &
+        $\bar{a}$ \textbackslash \texttt{bar\{a\}}          &
+        $\dot{a}$ \textbackslash \texttt{dot\{a\}}          \\
+
+        $\check{a}$ \textbackslash \texttt{check\{a\}}      &   
+        $\grave{a}$ \textbackslash \texttt{grave\{a\}}      &
+        $\vec{a}$ \textbackslash \texttt{vec\{a\}}          &
+        $\ddot{a}$ \textbackslash \texttt{ddot\{a\}}        \\
+
+
+        $\breve{a}$ \textbackslash \texttt{breve\{a\}}      &   
+        $\tilde{a}$ \textbackslash \texttt{tilde\{a\}}        \\
+\end{tabular}
+
+Here are two sizes of wide hat: \( \widehat{1-x} = \widehat{-y} \).
+
+
+The letters $i$ and $j$ should lose their dots when accented. The commands \textbackslash \texttt{imath}
+and \textbackslash \texttt{jmath} produce a dotless $i$ and $j$, respectively.
+
+There are no dots in \( \vec{\imath} + \tilde{\jmath} \).
+
+\subsubsection{Stacking Symbols}
+
+The \textbackslash \texttt{stackrel} command stacks one symbol above another.
+
+\( A \stackrel{a'}{\rightarrow} B \stackrel{b'}{\rightarrow} C \)
+
+\( \vec{x} \stackrel{\mathrm{def}}{=} (x_{1}, \ldots, x_{n}) \)
+
+\noindent
+See Section 3.3.8 for an explanation of the \textbackslash \texttt{mathrm} command. 
+The \textbackslash \texttt{stackrel} command's first argument is pritned in small type, like a superscript;
+use the \textbackslash \texttt{texxtstyle} declaration of Section 3.3.8 to print it in regular size type.
+
 \end{document}
