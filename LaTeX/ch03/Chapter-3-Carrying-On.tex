@@ -606,7 +606,49 @@ The \textbackslash \texttt{stackrel} command stacks one symbol above another.
 
 \noindent
 See Section 3.3.8 for an explanation of the \textbackslash \texttt{mathrm} command. 
-The \textbackslash \texttt{stackrel} command's first argument is pritned in small type, like a superscript;
+The \textbackslash \texttt{stackrel} command's first argument is printed in small type, like a superscript;
 use the \textbackslash \texttt{texxtstyle} declaration of Section 3.3.8 to print it in regular size type.
+
+\subsection{Spacing in Math Mode}
+
+In math mode, \TeX\ ignores the spaces you type and formats the formula the way it thinks is best.
+Some authors feel that \TeX\ cramps formulas, and they want to add more space. \TeX\ knows more 
+about typesetting formulas than many authors do. Adding extra space usually makes a formula prettier
+but harder to read, because it visually "fractures" the formula into separate units. Study how 
+forumulas look in ordinary mathematics texts before trying to improve \TeX\'s formatting.
+
+Although fiddling with the spacking is dangerous, you sometimes have to do it to make a formula look 
+just right. One reason is that \TeX\ may not understand the formula's logical structure. For example,
+it interprets \texttt(y dx) as the product of three quantities rather than as $y$ times the differential $dx$,
+so it doesn't add the little space after the $y$ that appears in $y\,dx$. Section 3.4 explains how to define
+your own commands for expressing this kind of logical structure, so you need to worry about the proper spacing 
+only when defining the commands and when writing the formulas.
+
+Like any computer program that makes aesthetic decisiosn, \TeX\ sometimes needs human assistance. You'll 
+have to examine the output to see if the spacing needs adjustment. Pay special attention to square root signs,
+integral signs, and quotient symbols (/).
+
+The following five commands add the amount of horizontal space shown between the vertical lines:
+
+\begin{itemize}
+    \item \textbackslash , thin space 
+    \item \textbackslash ! negative thin space
+    \item \textbackslash : medium space 
+    \item \textbackslash ; thick space 
+    \item \textbackslash ␣ interword space
+\end{itemize}
+
+The \textbackslash ! acts like a backspace, removing the same amount of space that \textbackslash , adds.
+The \textbackslash , command can be used in any mode; the others can appear only in math mode.
+Here are some examples of their use, where the result of omitting the spacing commands is also shown.
+
+\( \sqrt{2} \, x \) instead of \( \sqrt{2}x \)
+
+\( n / \! log n \) instead of \( n / log n \) 
+
+\( \int\!\!\int z\,dx\,dy \)
+
+As with all such fine tuning, you should not correct the spacing in formulas until you've finished 
+writing the document and are preparing the final output.
 
 \end{document}
