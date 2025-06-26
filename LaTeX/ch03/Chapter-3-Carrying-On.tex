@@ -468,4 +468,68 @@ command.
 \end{array}
 \right. \]
 
+\subsection{Multiline Formulas}
+
+The \texttt{displaymath} and \texttt{equation} environments make one-line formulas. 
+A formula is displayed across multiple lines if it is a sequence of separate formulas
+or is too long to fit on a single line. A sequence of equations or inequalities is 
+displayed with the \texttt{eqnarray} environment. It is very much like a three-column 
+\texttt{array} environment, with consecutive rows separated by \textbackslash \textbackslash 
+and consecutive items with a row separated by \textbf{\texttt{\&}} (Secxtion 3.3.3). However, 
+an equation number is put on every line unless that line has a \textbackslash nonumber command.
+
+The middle column can be anything, not just a `='.
+
+\begin{eqnarray}
+    x & = & 17y \\
+    y & > & a + b + c + d + e + f + g + h + i + j + \nonumber \\ 
+      &   & k + l + m + n + o + p 
+\end{eqnarray}
+
+Section 4.2 describes how to let \LaTeX\ handle referenes to equations so you don't have to remember 
+equation numbers.
+
+The \texttt{eqnarray*} environment is the same as the \texttt{eqnarray} except it does not generate 
+equation numbers.
+
+\begin{eqnarray*}
+    x & = & 17y \\
+    y & > & a + b + c + d + e + f + g + h + i + j + \nonumber \\ 
+      &   & k + l + m + n + o + p 
+\end{eqnarray*}
+
+A \texttt{+} or \texttt{-} that begins a formula (or certain subformulas) is assumed to be a 
+unary operator, so typing \texttt{\$-x\$} produces $-x$ and typing \texttt{\$\textbackslash sum -x\_\{i\}\$}
+produces \( \sum -x_{i} \), with no space between the `-' and the ``x''. If the forula is part of a larger one 
+that is being split across lines \TeX\ must be told that the \texttt{+} or \texttt{-} is a binary operator.
+This is done by starting the formula with an invisible first term, produced by an \texttt{\textbackslash mbox} 
+command with a null argument.
+
+\begin{eqnarray*}
+    x & = & 17y \\
+    y & > & a + b + c + d + e + f + g + h + i + j \nonumber \\ 
+      &   &\mbox{} + k + l + m + n + o + p 
+\end{eqnarray*}
+
+A formula can often be split across lines using a \textbackslash \texttt{lefteqn} command in an 
+\texttt{eqnarray} or \texttt{eqnarray*} environment, as indicated by the following example.
+
+\begin{eqnarray*}
+\lefteqn{w+x+y+z = } \\
+    & & a + b + c + d + e + f + g + h + i + j + \nonumber \\ 
+    & & k + l + m + n + o + p
+\end{eqnarray*}
+
+The \textbackslash \texttt{lefteqn} command works by making \TeX\ think that the formula 
+it produces has zero width, so the left-most column of the \texttt{eqnarray} or \texttt{eqnarray*} 
+environment is made suitably narrow. The indentation of the following lines can 
+be increased by adding space (with the commands of Section 6.4.2) between the 
+\textbackslash \texttt{lefteqn} command and the \textbackslash \textbackslash.
+
+Breaking a single formula across lines in this way is visual formatting, and I wish \LaTeX\ 
+could do it for you. However, doing it well requires more intelligence that \LaTeX\ has, and 
+doing it poorly can make the formula hard to understand, so you must do it yourself. This means 
+that the formula may have to be reformatted if you change notation (changing the formula's length) 
+or if you change the style of your document (changing the line length).
+
 \end{document}
