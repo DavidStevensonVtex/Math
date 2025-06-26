@@ -431,4 +431,41 @@ Section 3.6.2 describes an analogous \texttt{tabular} environment for making arr
 The \texttt{array} environment is almost always used in a displayed formula, but it can appear in an in-text 
 formula as well.
 
+\subsection{Delimiters}
+
+A \emph{delimiter} is a symbol that acts logically like a parenthesis, with a pair of delimiters enclosing an 
+expression. Table 3.10 lists every symbol that \TeX\ regards as a delimiter, together with the command or input 
+character that produces it. These commands and characters produce delimiters of the indicated size. However,
+delimiters in formulas should be big enough to "fit around" the expressions that they delimit. To make a 
+delimiter the right size, type a \textbackslash left or \textbackslash right command before it.
+
+Big delimiters are most often used with arrays.
+
+\[ \left( \begin{array}{c}
+    \left| \begin{array}{cc}
+        x_{11} & x_{12} \\
+        x_{21} & x_{22} \\
+    \end{array}
+    \right| \\
+    y \\ z
+\end{array} \right) \]
+
+The \textbackslash left and \textbackslash right commands must come in matching pairs, but the mataching
+delimiters need not be the same.
+
+\[ x + y + z = \left( \begin{array}{c}
+    a \\ b 
+\end{array}     \right[ \]
+
+Some formulas require a big left delimiter with no matching right one, or vice versa. 
+The \textbackslash left and \textbackslash right commands must match, but you can make an 
+invisible delimiter by typing a "." after the \textbackslash left or \textbackslash right
+command.
+
+\[ x = \left\{ \begin{array}{ll} 
+    y & \mbox{if $y>0$} \\
+    x+y & \mbox{otherwise} 
+\end{array}
+\right. \]
+
 \end{document}
